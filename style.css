@@ -1,0 +1,35 @@
+/* Perustyylit, voit muokata halutessasi */
+
+body {
+  margin: 20px;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+/* Numeroitu luettelo, jossa kysymykset */
+#quiz-container {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+}
+
+/* Pudotusvalikon maksimileveyden rajoitus */
+select {
+  max-width: 300px;
+}
+
+/* Tarkista-painikkeen yksinkertainen tyyli */
+button {
+  margin-top: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Tuloste-alueen tyyli */
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}
