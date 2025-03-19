@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- TÄRKEÄ: meta viewport, jotta mobiililaitteet näyttävät sivun oikein -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monivalintatehtävä - Afrikka, Kiina ja Japani</title>
+
+  <style>
+    /* Yksinkertaista perus-tyyliä, jotta kaikki sisältö mahtuu puhelimen leveydelle */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      /* Rajoitetaan sivun maksimileveyttä isommilla näytöillä, mutta mobiilissa 100% leveys */
+      max-width: 800px; 
+      margin: auto;
+    }
+
+    ol {
+      padding-left: 20px;  /* jotta listanumerot eivät leikkaannu reunasta */
+    }
+
+    select {
+      max-width: 100%;  /* Pudotusvalikko ei ylitä ruudun leveyttä */
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Monivalintatehtävät</h2>
+<p>Valitse kunkin kysymyksen kohdalla mielestäsi oikea vastaus pudotusvalikosta ja paina lopuksi "Tarkista vastaukset".</p>
+
+<ol>
+  <li>
+    Mikä oli 1800-luvun lopun siirtomaiden valloitusinnosta käytetty nimitys?<br>
+    <select id="q1">
+      <option value="">Valitse</option>
+      <option value="A">Imperialismi</option>
+      <option value="B">Industriaalikausi</option>
+      <option value="C">Monarkismi</option>
+      <option value="D">Federalismi</option>
+    </select>
+  </li>
+
+  <li>
+    Mikä oli eurooppalaisten tärkein syy hankkia siirtomaita?<br>
+    <select id="q2">
+      <option value="">Valitse</option>
+      <option value="A">Raaka-aineiden ja uusien markkinoiden saaminen</option>
+      <option value="B">Afrikan sademetsien suojeleminen</option>
+      <option value="C">Urheilukilpailujen järjestäminen paikallisille</option>
+      <option value="D">Lomakohteiden perustaminen eurooppalaisille</option>
+    </select>
+  </li>
+
+  <li>
+    Kuka tunnettu tutkimusmatkailija auttoi Afrikan sisäosien kartoittamisessa 1800-luvulla?<br>
+    <select id="q3">
+      <option value="">Valitse</option>
+      <option value="A">David Livingstone</option>
+      <option value="B">James Cook</option>
+      <option value="C">Marco Polo</option>
+      <option value="D">Vasco da Gama</option>
+    </select>
+  </li>
+
+  <li>
+    Kuka eteläafrikkalainen liikemies korosti ”valkoisen miehen taakkaa” ja unelmoi reitistä Kapkaupungista Kairoon?<br>
+    <select id="q4">
+      <option value="">Valitse</option>
+      <option value="A">Cecil Rhodes</option>
+      <option value="B">Napoleon Bonaparte</option>
+      <option value="C">Mahatma Gandhi</option>
+      <option value="D">Thomas Edison</option>
+    </select>
+  </li>
+
+  <li>
+    Mitä tarkoitettiin ”valkoisen miehen taakalla”?<br>
+    <select id="q5">
+      <option value="">Valitse</option>
+      <option value="A">Eurooppalaisten uskosta, että heidän velvollisuutensa oli opettaa afrikkalaisille länsimaisia tapoja</option>
+      <option value="B">Eteläisten valtioiden vastustamista Pohjois-Euroopassa</option>
+      <option value="C">Pakollista asepalvelusta kaikille yli 18-vuotiaille</option>
+      <option value="D">Eurooppalaisten aatelisten harrastamaa kulttuurivaihtoa</option>
+    </select>
+  </li>
+
+  <li>
+    Miksi orjakauppa alkoi vähentyä 1800-luvun alussa?<br>
+    <select id="q6">
+      <option value="">Valitse</option>
+      <option value="A">Monet valtiot kielsivät orjakaupan lailla</option>
+      <option value="B">Orjista tuli yhtäkkiä liian kalliita</option>
+      <option value="C">Kaikki orjat vapautettiin yhden päivän aikana</option>
+      <option value="D">Eurooppalaiset eivät enää keksineet, mihin orjia tarvittiin</option>
+    </select>
+  </li>
+
+  <li>
+    Miksi Afrikan siirtomaiden rajat aiheuttivat myöhemmin ongelmia?<br>
+    <select id="q7">
+      <option value="">Valitse</option>
+      <option value="A">Raja-alueet sijoitettiin vuoristoon, jossa kukaan ei voinut asua</option>
+      <option value="B">Rajaviivat eivät ottaneet huomioon paikallisia kieli- ja kansaryhmiä</option>
+      <option value="C">Rajat kulkivat tarkalleen jokien mukaisesti, joten niitä ei voinut ylittää</option>
+      <option value="D">Rajat merkittiin vain karttoihin, joten niitä ei todellisuudessa ollut</option>
+    </select>
+  </li>
+
+  <li>
+    Minkä valtakunnan Euroopan vallat kohtasivat ”idässä” laajentaessaan vaikutusvaltaansa?<br>
+    <select id="q8">
+      <option value="">Valitse</option>
+      <option value="A">Kiinan keisarikunnan</option>
+      <option value="B">Ottomaanien valtakunnan</option>
+      <option value="C">Inkojen valtakunnan</option>
+      <option value="D">Japanin shogunaatin</option>
+    </select>
+  </li>
+
+  <li>
+    Miksi Istanbul (Konstantinopoli) oli tärkeä kaupunki?<br>
+    <select id="q9">
+      <option value="">Valitse</option>
+      <option value="A">Se oli Euroopan vanhimman yliopiston kotipaikka</option>
+      <option value="B">Se sijaitsi keskellä arktista aluetta</option>
+      <option value="C">Siellä viljeltiin eniten puuvillaa koko maailmassa</option>
+      <option value="D">Se oli portti Aasiaan ja Afrikkaan</option>
+    </select>
+  </li>
+
+  <li>
+    Mikä vuonna 1869 valmistunut kulkureitti lyhensi merimatkaa Euroopasta Aasiaan?<br>
+    <select id="q10">
+      <option value="">Valitse</option>
+      <option value="A">Panaman kanava</option>
+      <option value="B">Suuri valliriutta</option>
+      <option value="C">Suezin kanava</option>
+      <option value="D">Bosporinsalmi</option>
+    </select>
+  </li>
+
+  <li>
+    Minkä tuotteen eurooppalaiset onnistuivat myymään Kiinaan, mikä aiheutti suuria ongelmia?<br>
+    <select id="q11">
+      <option value="">Valitse</option>
+      <option value="A">Sokerin</option>
+      <option value="B">Puuvillan</option>
+      <option value="C">Oopiumin</option>
+      <option value="D">Kulta-astioiden</option>
+    </select>
+  </li>
+
+  <li>
+    Miksi oopiumista tuli ongelma Kiinalle?<br>
+    <select id="q12">
+      <option value="">Valitse</option>
+      <option value="A">Sen käytön leviäminen aiheutti riippuvuutta ja yhteiskunnallisia ongelmia</option>
+      <option value="B">Se teki kiinalaisista vastustuskykyisiä kauppaa kohtaan</option>
+      <option value="C">Se lopetti kaiken kaupankäynnin Euroopan ja Kiinan välillä</option>
+      <option value="D">Sitä ei saatu myytyä muualle kuin yhden kaupungin satamaan</option>
+    </select>
+  </li>
+
+  <li>
+    Mikä sota puhkesi vuonna 1839 Kiinan ja Britannian välillä?<br>
+    <select id="q13">
+      <option value="">Valitse</option>
+      <option value="A">Mansikkasota</option>
+      <option value="B">Krimin sota</option>
+      <option value="C">Oopiumsota</option>
+      <option value="D">Ensimmäinen maailmansota</option>
+    </select>
+  </li>
+
+  <li>
+    Minkä alueen Kiina joutui luovuttamaan Britannialle oopiumsodan jälkeen?<br>
+    <select id="q14">
+      <option value="">Valitse</option>
+      <option value="A">Macaon</option>
+      <option value="B">Hongkongin</option>
+      <option value="C">Singaporen</option>
+      <option value="D">Malesian</option>
+    </select>
+  </li>
+
+  <li>
+    Mikä oli boksarikapinan (1899–1901) tavoite Kiinassa?<br>
+    <select id="q15">
+      <option value="">Valitse</option>
+      <option value="A">Ulkomaalaisten karkottaminen ja länsimaisten vaikutteiden tuhoaminen</option>
+      <option value="B">Liittoutuminen Euroopan kanssa oopiumikaupan laajentamiseksi</option>
+      <option value="C">Kiinan muuttaminen tasavallaksi</option>
+      <option value="D">Yhteistyön solmiminen Japanin kanssa</option>
+    </select>
+  </li>
+
+  <li>
+    Mikä hallitsijasuku heikkeni Kiinassa länsimaiden paineen takia 1800-luvulla?<br>
+    <select id="q16">
+      <option value="">Valitse</option>
+      <option value="A">Ming-dynastia</option>
+      <option value="B">Song-dynastia</option>
+      <option value="C">Tang-dynastia</option>
+      <option value="D">Qing-dynastia</option>
+    </select>
+  </li>
+
+  <li>
+    Kuka oli Japanin todellinen hallitsija ennen keisarin vallan palauttamista?<br>
+    <select id="q17">
+      <option value="">Valitse</option>
+      <option value="A">Samurait</option>
+      <option value="B">Daimiot</option>
+      <option value="C">Shogun</option>
+      <option value="D">Kenraali MacArthur</option>
+    </select>
+  </li>
+
+  <li>
+    Minkä maan laivasto saapui vuonna 1853 Japanin rannikolle vaatien satamien avaamista?<br>
+    <select id="q18">
+      <option value="">Valitse</option>
+      <option value="A">Ranskan</option>
+      <option value="B">Iso-Britannian</option>
+      <option value="C">Yhdysvaltojen</option>
+      <option value="D">Saksan</option>
+    </select>
+  </li>
+
+  <li>
+    Miksi shogunin valta romahti Japanissa 1800-luvun puolivälin jälkeen?<br>
+    <select id="q19">
+      <option value="">Valitse</option>
+      <option value="A">Japanilaiset ymmärsivät modernisaation tarpeen ja halusivat uudistaa maata</option>
+      <option value="B">Shogun päätti luopua vallasta vapaaehtoisesti</option>
+      <option value="C">Kiina hyökkäsi Japaniin</option>
+      <option value="D">Samurait valitsivat itselleen uuden shogunin</option>
+    </select>
+  </li>
+
+  <li>
+    Kenelle valta palautettiin Japanissa shogunin kukistuttua?<br>
+    <select id="q20">
+      <option value="">Valitse</option>
+      <option value="A">Sotilaskomentajille</option>
+      <option value="B">Parlamentille</option>
+      <option value="C">Kuningattarelle</option>
+      <option value="D">Keisarille</option>
+    </select>
+  </li>
+
+  <li>
+    Minkä mallin mukaan Japanin hallinto, armeija ja koulutus uudistettiin?<br>
+    <select id="q21">
+      <option value="">Valitse</option>
+      <option value="A">Muinaisen Kiinan</option>
+      <option value="B">Oman perinteensä</option>
+      <option value="C">Länsimaiden</option>
+      <option value="D">Afrikan siirtomaiden</option>
+    </select>
+  </li>
+
+  <li>
+    Miksi Japanista tuli nopeasti merkittävä teollisuusmaa?<br>
+    <select id="q22">
+      <option value="">Valitse</option>
+      <option value="A">Sillä oli eniten kultakaivoksia</option>
+      <option value="B">Se otti länsimaista teollisuusteknologiaa käyttöön ja kehitti omaa tuotantoaan</option>
+      <option value="C">Koko kansa muutti Yhdysvaltoihin</option>
+      <option value="D">Japani peri valtavan määrän varoja Ranskalta</option>
+    </select>
+  </li>
+
+  <li>
+    Miksi Japani alkoi laajentaa alueitaan 1900-luvun alussa?<br>
+    <select id="q23">
+      <option value="">Valitse</option>
+      <option value="A">Se halusi tehdä kaikista maista keisarikuntia</option>
+      <option value="B">Japani kärsi raaka-aineiden puutteesta</option>
+      <option value="C">Japani pelkäsi eurooppalaisten hyökkäyksiä</option>
+      <option value="D">Eurooppa pakotti Japanin valloittamaan muita alueita</option>
+    </select>
+  </li>
+
+  <li>
+    Minkä maan Japani voitti sodassa vuonna 1905?<br>
+    <select id="q24">
+      <option value="">Valitse</option>
+      <option value="A">Kiinan</option>
+      <option value="B">Ranskan</option>
+      <option value="C">Venäjän</option>
+      <option value="D">Espanjan</option>
+    </select>
+  </li>
+
+  <li>
+    Mikä kuuluisa junareitti lisäsi eurooppalaisten kiinnostusta Istanbuliin ja itämaihin?<br>
+    <select id="q25">
+      <option value="">Valitse</option>
+      <option value="A">Trans-Siperian rata</option>
+      <option value="B">Orient-Express</option>
+      <option value="C">Valtteri-Express</option>
+      <option value="D">Pacific-Express</option>
+    </select>
+  </li>
+
+  <li>
+    Mihin muinaiseen imperiumiin britit vertasivat laajaa siirtomaavaltaansa?<br>
+    <select id="q26">
+      <option value="">Valitse</option>
+      <option value="A">Egyptin valtakuntaan</option>
+      <option value="B">Assyriaan</option>
+      <option value="C">Rooman valtakuntaan</option>
+      <option value="D">Aleksanteri Suuren imperiumiin</option>
+    </select>
+  </li>
+
+  <li>
+    Mitä sana ”imperiumi” tarkoittaa?<br>
+    <select id="q27">
+      <option value="">Valitse</option>
+      <option value="A">Pientä omakotitaloa</option>
+      <option value="B">Laajaa valtakuntaa, joka hallitsee useita alueita</option>
+      <option value="C">Kaupallista sopimusta kahden maan välillä</option>
+      <option value="D">Yhden kaupungin kaupungintaloa</option>
+    </select>
+  </li>
+
+  <li>
+    Miksi eurooppalaiset pitivät 1800-luvulla omaa elämäntapaansa afrikkalaista ylempiarvoisena?<br>
+    <select id="q28">
+      <option value="">Valitse</option>
+      <option value="A">Koska eurooppalaiset viettivät enemmän aikaa aavikolla</option>
+      <option value="B">Koska eurooppalainen teollistunut yhteiskunta nähtiin edistyksellisempänä</option>
+      <option value="C">Koska afrikkalaisten kieliä ei voitu ymmärtää</option>
+      <option value="D">Koska eurooppalaiset eivät koskaan tienneet Afrikasta mitään</option>
+    </select>
+  </li>
+
+  <li>
+    Mitä eurooppalaiset toivat Afrikkaan, vaikka se palveli lähinnä siirtomaahallinnon tarpeita?<br>
+    <select id="q29">
+      <option value="">Valitse</option>
+      <option value="A">Eri satoja kylveleviä maatalousrobotteja</option>
+      <option value="B">Kouluja ja terveydenhuoltoa</option>
+      <option value="C">Ydinvoimaloita</option>
+      <option value="D">Suuria huvipuistoja</option>
+    </select>
+  </li>
+
+  <li>
+    Mitä tarkoittaa siirtomaa?<br>
+    <select id="q30">
+      <option value="">Valitse</option>
+      <option value="A">Alue, joka on vieraan valtion hallinnassa</option>
+      <option value="B">Paikka, jossa vain kasvit siirtyvät</option>
+      <option value="C">Kauppahalli, jossa myydään hedelmiä</option>
+      <option value="D">Ainoastaan vapaaehtoisesti liitetty alue</option>
+    </select>
+  </li>
+</ol>
+
+<button onclick="checkAnswers()">Tarkista vastaukset</button>
+
+<p id="result"></p>
+
+<script>
+function checkAnswers() {
+  // Oikeat vastaukset (A, A, A, A, A, A, B, B, D, C, C, A, C, B, A, D, C, C, A, D, C, B, B, C, B, C, B, B, B, A)
+  const correctAnswers = [
+    "A","A","A","A","A","A",
+    "B","B","D","C","C","A",
+    "C","B","A","D","C","C",
+    "A","D","C","B","B","C",
+    "B","C","B","B","B","A"
+  ];
+  
+  let correctCount = 0;
+  let wrongAnswers = [];
+
+  for (let i = 1; i <= 30; i++) {
+    const userAnswer = document.getElementById("q" + i).value;
+    if (userAnswer === correctAnswers[i - 1]) {
+      correctCount++;
+    } else {
+      wrongAnswers.push(i);
+    }
+  }
+  
+  let resultText = "Oikeita vastauksia: " + correctCount + " / 30.<br>";
+  if (wrongAnswers.length > 0) {
+    resultText += "Väärin menivät kysymykset: " + wrongAnswers.join(", ");
+  } else {
+    resultText += "Kaikki vastaukset ovat oikein!";
+  }
+  
+  document.getElementById("result").innerHTML = resultText;
+}
+</script>
+
+</body>
+</html>
