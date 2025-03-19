@@ -3,24 +3,25 @@
 <head>
   <meta charset="utf-8">
   <title>Monivalintatehtävä</title>
-  <!-- Mobiilikäyttöä varten responsiivinen meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Linkki ulkoiseen CSS-tiedostoon -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- Vihreä otsikkopalkki -->
   <h2>Monivalintatehtävät</h2>
-  <p>Valitse kunkin kysymyksen kohdalta mielestäsi oikea vastaus ja paina lopuksi "Tarkista vastaukset".</p>
 
-  <!-- Tänne lisätään kysymykset JavaScriptillä -->
-  <ol id="quiz-container"></ol>
+  <!-- Uusi pääkontaineri "main", jotta saadaan valkoinen tausta ja keskitys -->
+  <main>
+    <p>Valitse kunkin kysymyksen kohdalta mielestäsi oikea vastaus ja paina lopuksi "Tarkista vastaukset".</p>
 
-  <button id="check-button">Tarkista vastaukset</button>
-  <p id="result"></p>
+    <!-- Kysymykset lisätään JavaScriptillä -->
+    <ol id="quiz-container"></ol>
 
-  <!-- Kysymysdata ja logiikka ladataan -->
+    <button id="check-button">Tarkista vastaukset</button>
+    <p id="result"></p>
+  </main>
+
   <script src="questions.js"></script>
   <script src="script.js"></script>
 </body>
